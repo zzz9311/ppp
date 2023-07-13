@@ -1,0 +1,12 @@
+K:\Users\nikol\source\repos\PetPPP\ServiceContracts\bin\Debug\net6.0\ServiceContracts.deps.json
+K:\Users\nikol\source\repos\PetPPP\ServiceContracts\bin\Debug\net6.0\ServiceContracts.dll
+K:\Users\nikol\source\repos\PetPPP\ServiceContracts\bin\Debug\net6.0\ServiceContracts.pdb
+K:\Users\nikol\source\repos\PetPPP\ServiceContracts\obj\Debug\net6.0\ServiceContracts.csproj.AssemblyReference.cache
+K:\Users\nikol\source\repos\PetPPP\ServiceContracts\obj\Debug\net6.0\ServiceContracts.GeneratedMSBuildEditorConfig.editorconfig
+K:\Users\nikol\source\repos\PetPPP\ServiceContracts\obj\Debug\net6.0\ServiceContracts.AssemblyInfoInputs.cache
+K:\Users\nikol\source\repos\PetPPP\ServiceContracts\obj\Debug\net6.0\ServiceContracts.AssemblyInfo.cs
+K:\Users\nikol\source\repos\PetPPP\ServiceContracts\obj\Debug\net6.0\ServiceContracts.csproj.CoreCompileInputs.cache
+K:\Users\nikol\source\repos\PetPPP\ServiceContracts\obj\Debug\net6.0\ServiceContracts.dll
+K:\Users\nikol\source\repos\PetPPP\ServiceContracts\obj\Debug\net6.0\refint\ServiceContracts.dll
+K:\Users\nikol\source\repos\PetPPP\ServiceContracts\obj\Debug\net6.0\ServiceContracts.pdb
+K:\Users\nikol\source\repos\PetPPP\ServiceContracts\obj\Debug\net6.0\ref\ServiceContracts.dll

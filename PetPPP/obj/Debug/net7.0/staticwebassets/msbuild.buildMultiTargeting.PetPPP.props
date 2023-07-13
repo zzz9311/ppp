@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\PetPPP.props" />
+</Project>
