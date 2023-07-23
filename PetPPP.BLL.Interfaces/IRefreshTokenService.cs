@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DAL.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,7 @@ namespace PetPPP.BLL.Interfaces
 {
     public interface IRefreshTokenService
     {
-        Task SetRefreshTokenToUserAsync(Guid id, string refreshToken, CancellationToken token);
+        Task SetRefreshTokenToUserAsync(Guid id, string refreshToken, string deviceInfo, CancellationToken token);
+        Task<UsersRefreshToken> GetUserRefreshTokenAsync(Guid userId, string deviceInfo, CancellationToken token);
     }
 }

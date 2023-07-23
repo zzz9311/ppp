@@ -1082,13 +1082,29 @@
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
           "Core": "1.0.0",
-          "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.4"
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.4",
+          "System.Data.SqlClient": "4.8.5"
         },
         "compile": {
           "bin/placeholder/DAL.dll": {}
         },
         "runtime": {
           "bin/placeholder/DAL.dll": {}
+        }
+      },
+      "PetPPP.BLL/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "Core": "1.0.0",
+          "DAL": "1.0.0",
+          "PetPPP.BLL.Interfaces": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/PetPPP.BLL.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PetPPP.BLL.dll": {}
         }
       },
       "PetPPP.BLL.Interfaces/1.0.0": {
@@ -2777,6 +2793,11 @@
       "path": "../DAL/DAL.csproj",
       "msbuildProject": "../DAL/DAL.csproj"
     },
+    "PetPPP.BLL/1.0.0": {
+      "type": "project",
+      "path": "../PetPPP.BLL/PetPPP.BLL.csproj",
+      "msbuildProject": "../PetPPP.BLL/PetPPP.BLL.csproj"
+    },
     "PetPPP.BLL.Interfaces/1.0.0": {
       "type": "project",
       "path": "../PetPPP.BLL.Interfaces/PetPPP.BLL.Interfaces.csproj",
@@ -2799,6 +2820,7 @@
       "Microsoft.AspNetCore.OpenApi >= 7.0.0-preview.6.22330.3",
       "Microsoft.Extensions.Caching.StackExchangeRedis >= 7.0.9",
       "Newtonsoft.Json >= 13.0.3",
+      "PetPPP.BLL >= 1.0.0",
       "PetPPP.BLL.Interfaces >= 1.0.0",
       "Rebus >= 8.0.0-alpha09",
       "Rebus.PostgreSql >= 9.0.0-alpha05",
@@ -2847,6 +2869,9 @@
             },
             "E:\\BOTs\\GitHub\\ppp\\PetPPP.BLL.Interfaces\\PetPPP.BLL.Interfaces.csproj": {
               "projectPath": "E:\\BOTs\\GitHub\\ppp\\PetPPP.BLL.Interfaces\\PetPPP.BLL.Interfaces.csproj"
+            },
+            "E:\\BOTs\\GitHub\\ppp\\PetPPP.BLL\\PetPPP.BLL.csproj": {
+              "projectPath": "E:\\BOTs\\GitHub\\ppp\\PetPPP.BLL\\PetPPP.BLL.csproj"
             },
             "E:\\BOTs\\GitHub\\ppp\\ServiceContracts\\ServiceContracts.csproj": {
               "projectPath": "E:\\BOTs\\GitHub\\ppp\\ServiceContracts\\ServiceContracts.csproj"

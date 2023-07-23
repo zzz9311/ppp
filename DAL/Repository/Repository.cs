@@ -84,16 +84,6 @@ namespace DAL.Repository
             _dbSet.RemoveRange(entities);
         }
 
-        public void SaveChanges()
-        {
-            _context.SaveChanges();
-        }
-
-        public Task SaveChangesAsync()
-        {
-            return _context.SaveChangesAsync();
-        }
-
         public List<T> ToList()
         {
             return GetQuery().ToList();

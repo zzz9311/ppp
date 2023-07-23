@@ -11,8 +11,6 @@ namespace DAL.Repository
 {
     public interface IRepository<T> where T : class
     {
-        void SaveChanges();
-        Task SaveChangesAsync();
         List<T> ToList();
         List<T> ToList(Expression<Func<T,bool>> expression);
         Task<List<T>> ToListAsync(CancellationToken token);

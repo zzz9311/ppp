@@ -34,8 +34,6 @@ namespace PetPPP.Controllers
         {
             if (model == null)
                 return BadRequest("Model is empty");
-            if (await _userService.IsUserWithUsernameExists(model.Username, token))
-                return StatusCode(StatusCodes.Status422UnprocessableEntity, "Пользователь с таким ником уже существует");
 
             var user = _mapper.Map<AppUserDTO>(model);
 
@@ -53,21 +51,36 @@ namespace PetPPP.Controllers
                 return Unauthorized();
             var accessToken = _tokenService.GenerateAccessToken(userId);
             var refreshToken = _tokenService.GenerateRefreshToken();
-            await _refreshTokenService.SetRefreshTokenToUserAsync(userId, refreshToken, token);
+            Request.Headers.TryGetValue("user-agent", out var deviceInfo);
+            await _refreshTokenService.SetRefreshTokenToUserAsync(userId, refreshToken, deviceInfo, token);
 
             return Ok(new AuthenticatedResponse(accessToken, refreshToken));
         }
 
         [HttpPost]
-        public async Task<IActionResult> RefreshToken(TokenApiModel model)
+        public async Task<IActionResult> RefreshToken([FromBody]TokenApiModel model, CancellationToken token)
         {
             if (model == null)
                 return BadRequest("Model is empty");
 
             var accessToken = model.AccessToken;
-            var refreshToken = model.RefreshToken;    
+            var refreshToken = model.RefreshToken;
 
+            var principal = _tokenService.GetPrincipalFromExpiredToken(accessToken);
+            Request.Headers.TryGetValue("user-agent", out var deviceInfo);
+            var userId = new Guid(principal.FindFirst("Id").Value);
+            var userRefreshToken = await _refreshTokenService.GetUserRefreshTokenAsync(userId, deviceInfo, token);
+            if (userRefreshToken == null || refreshToken != userRefreshToken.RefreshToken ||
+                userRefreshToken.RefreshTokenExpiryTime < DateTime.Now)
+            {
+                return BadRequest("Invalid client request");
+            }
 
+            var newAccessToken = _tokenService.GenerateAccessToken(userId);
+            var newRefreshToken = _tokenService.GenerateRefreshToken();
+            await _refreshTokenService.SetRefreshTokenToUserAsync(userId, newRefreshToken, deviceInfo, token);
+
+            return Ok(new AuthenticatedResponse(newAccessToken, newRefreshToken));
         }
     }
 }

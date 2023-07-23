@@ -1,7 +1,9 @@
 using Core;
 using Core.DependencyInjectionExtensions;
+using DAL;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using PetPPP.BLL;
 using PetPPP.Extensions;
 using PetPPP.JWT;
 using PetPPP.Mapper;
@@ -20,6 +22,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddSelfRegistered(typeof(Program).Assembly);
 builder.Services.AddAutoMapper(typeof(MappingProfile));
+builder.Services.UseDatabase();
+builder.Services.UseServices();
 builder.Services.AddAuthentication(opt =>
 {
     opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;

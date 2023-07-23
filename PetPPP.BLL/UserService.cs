@@ -1,6 +1,7 @@
 ﻿using Core.DependencyInjectionExtensions;
 using DAL.Entities;
 using DAL.Repository;
+using DAL.UnitOfWork;
 using PetPPP.BLL.Interfaces;
 using PetPPP.BLL.Interfaces.DTO;
 using System.Security.Cryptography;
@@ -11,10 +12,12 @@ namespace PetPPP.BLL
     public class UserService : IUserService
     {
         private readonly IRepository<AppUser> _repository;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public UserService(IRepository<AppUser> repository)
+        public UserService(IRepository<AppUser> repository, IUnitOfWork unitOfWork)
         {
             _repository = repository;
+            _unitOfWork = unitOfWork;
         }
 
         public async Task AddUserAsync(AppUserDTO userDTO, CancellationToken token)
@@ -26,7 +29,7 @@ namespace PetPPP.BLL
                 Password = CreatePasswordHash(userDTO.Password)
             };
             await _repository.AddAsync(user, token);
-            await _repository.SaveChangesAsync();
+            await _unitOfWork.SaveAsync(token);
         }
 
         public async Task EditUserAsync(AppUserDTO userDTO, Guid id, CancellationToken token)
@@ -34,7 +37,7 @@ namespace PetPPP.BLL
             var user = await _repository.FirstOrDeafultAsync(i => i.Id == id, token);
             user.Email = userDTO.Email;
             _repository.Update(user);
-            await _repository.SaveChangesAsync();
+            await _unitOfWork.SaveAsync(token);
         }
 
         public async Task<AppUser> GetUserByIdAsync(Guid id, CancellationToken token)
