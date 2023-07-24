@@ -10,12 +10,12 @@ namespace DAL.Entities
     {
         public UsersRefreshToken()
         {
-            RefreshTokenExpiryTime = DateTime.Now.AddDays(7);
+            RefreshTokenExpiryTime = DateTime.UtcNow.AddDays(7);
         }
         public int Id { get; init; }
-        public Guid UserId { get; set; }
-        public string RefreshToken { get; set; }
-        public DateTime RefreshTokenExpiryTime { get; set; }
-        public string DeviceInfo { get; set; }
+        public Guid UserId { get; init; }
+        public string RefreshToken { get; init; }
+        public DateTime RefreshTokenExpiryTime { get; init; }
+        public string DeviceInfo { get; init; }
     }
 }

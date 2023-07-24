@@ -37,7 +37,17 @@ namespace PetPPP.BLL
 
         public async Task<UsersRefreshToken> GetUserRefreshTokenAsync(Guid userId, string deviceInfo, CancellationToken token)
         {
-            return await _repository.FirstOrDeafultAsync(i => i.UserId == userId && i.DeviceInfo == deviceInfo, token);
+            return await _repository.FirstOrDefaultAsync(i => i.UserId == userId && i.DeviceInfo == deviceInfo, token);
+        }
+
+        public async Task<bool> RevokeUserRefreshTokenAsync(Guid userId, string deviceInfo, CancellationToken token)
+        {
+            var refreshToken = await _repository.FirstOrDefaultAsync(i => i.UserId == userId && i.DeviceInfo == deviceInfo, token);
+            if (refreshToken == null)
+                return false;
+            _repository.Remove(refreshToken);
+            await _unitOfWork.SaveAsync(token);
+            return true;
         }
     }
 }

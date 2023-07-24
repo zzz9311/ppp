@@ -11,5 +11,6 @@ namespace PetPPP.BLL.Interfaces
     {
         Task SetRefreshTokenToUserAsync(Guid id, string refreshToken, string deviceInfo, CancellationToken token);
         Task<UsersRefreshToken> GetUserRefreshTokenAsync(Guid userId, string deviceInfo, CancellationToken token);
+        Task<bool> RevokeUserRefreshTokenAsync(Guid userId, string deviceInfo, CancellationToken token);
     }
 }

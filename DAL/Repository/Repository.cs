@@ -45,12 +45,12 @@ namespace DAL.Repository
             return GetQuery().AnyAsync(expression, token);
         }
 
-        public Task<T> FirstOrDeafultAsync(CancellationToken token)
+        public Task<T> FirstOrDefaultAsync(CancellationToken token)
         {
             return GetQuery().FirstOrDefaultAsync(token);
         }
 
-        public Task<T> FirstOrDeafultAsync(Expression<Func<T, bool>> expression, CancellationToken token)
+        public Task<T> FirstOrDefaultAsync(Expression<Func<T, bool>> expression, CancellationToken token)
         {
             return GetQuery().FirstOrDefaultAsync(expression, token);
         }

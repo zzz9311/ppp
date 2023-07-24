@@ -17,8 +17,8 @@ namespace DAL.Repository
         Task<List<T>> ToListAsync(Expression<Func<T, bool>> expression, CancellationToken token);
         T FirstOrDefault();
         T FirstOrDefault(Expression<Func<T, bool>> expression);
-        Task<T> FirstOrDeafultAsync(CancellationToken token);
-        Task<T> FirstOrDeafultAsync(Expression<Func<T, bool>> expression, CancellationToken token);
+        Task<T> FirstOrDefaultAsync(CancellationToken token);
+        Task<T> FirstOrDefaultAsync(Expression<Func<T, bool>> expression, CancellationToken token);
         Task<EntityEntry<T>> AddAsync(T entity, CancellationToken token);
         void Add(T entity);
         bool Any(Expression<Func<T, bool>> expression);

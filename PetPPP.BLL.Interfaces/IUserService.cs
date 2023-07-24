@@ -7,9 +7,9 @@ namespace PetPPP.BLL.Interfaces
     {
         Task<AppUser> GetUserByIdAsync(Guid id, CancellationToken token);
         Task AddUserAsync(AppUserDTO user, CancellationToken token);
-        Task EditUserAsync(AppUserDTO userDTO, Guid id, CancellationToken token);
-        Task<Guid> LoginUserAsync(AppUserDTO user, CancellationToken token);
-        Task<bool> IsUserWithUsernameExists(string username, CancellationToken token);
+        Task<bool> EditUserAsync(AppUserDTO userDTO, Guid id, CancellationToken token);
+        Task<Guid> LoginUserAsync(LoginDTO user, CancellationToken token);
+        Task<Guid> GetUserIdByUsername(string username, CancellationToken token);
 
     }
 }

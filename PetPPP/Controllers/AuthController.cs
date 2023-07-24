@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using DAL.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.VisualBasic;
 using PetPPP.BLL.Interfaces;
 using PetPPP.BLL.Interfaces.DTO;
 using PetPPP.JWT;
@@ -38,7 +40,7 @@ namespace PetPPP.Controllers
             var user = _mapper.Map<AppUserDTO>(model);
 
             await _userService.AddUserAsync(user, token);
-            return RedirectToAction("Login");
+            return Ok("Register success");
         }
 
         [HttpPost("login")]
@@ -46,7 +48,7 @@ namespace PetPPP.Controllers
         {
             if (model == null)
                 return BadRequest("Model is empty");
-            var userId = await _userService.LoginUserAsync(_mapper.Map<AppUserDTO>(model), token);
+            var userId = await _userService.LoginUserAsync(_mapper.Map<LoginDTO>(model), token);
             if (userId == Guid.Empty)
                 return Unauthorized();
             var accessToken = _tokenService.GenerateAccessToken(userId);
@@ -81,6 +83,21 @@ namespace PetPPP.Controllers
             await _refreshTokenService.SetRefreshTokenToUserAsync(userId, newRefreshToken, deviceInfo, token);
 
             return Ok(new AuthenticatedResponse(newAccessToken, newRefreshToken));
+        }
+
+        [HttpPost]
+        [Authorize]
+        public async Task<IActionResult> RevokeToken(string username, CancellationToken token)
+        {
+            var userId = await _userService.GetUserIdByUsername(username, token);
+            if (userId == Guid.Empty)
+                return BadRequest("User not found");
+
+            Request.Headers.TryGetValue("user-agent", out var deviceInfo);
+            if (await _refreshTokenService.RevokeUserRefreshTokenAsync(userId, deviceInfo, token))
+                return Ok("Revoke token success");
+            else
+                return BadRequest("Revoke token failed");
         }
     }
 }

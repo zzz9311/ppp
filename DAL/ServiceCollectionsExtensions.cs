@@ -1,4 +1,7 @@
 ﻿using Core.DependencyInjectionExtensions;
+using DAL.Data;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -10,9 +13,10 @@ namespace DAL
 {
     public static class ServiceCollectionsExtensions
     {
-        public static IServiceCollection UseDatabase(this IServiceCollection services)
+        public static IServiceCollection UseDatabase(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddSelfRegistered(typeof(ServiceCollectionExtensions).Assembly);
+            services.AddDbContext<ApplicationDbContext>(opt => opt.UseNpgsql(configuration.GetConnectionString("Default connection")));
             return services;
         }
     }

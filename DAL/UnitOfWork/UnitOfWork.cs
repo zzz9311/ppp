@@ -29,8 +29,7 @@ namespace DAL.UnitOfWork
             }
             catch (DbUpdateException ex)
             {
-                if (ex.InnerException is SqlException sqlException && sqlException.Number == 2627)
-                    throw new UniqueIndexException(ex.Message);
+                UniqueIndexExceptionHandler(ex);
             }
         }
 
@@ -42,9 +41,14 @@ namespace DAL.UnitOfWork
             }
             catch (DbUpdateException ex)
             {
-                if (ex.InnerException is SqlException sqlException && sqlException.Number == 2627)
-                    throw new UniqueIndexException(ex.Message);
+                UniqueIndexExceptionHandler(ex);
             }
+        }
+
+        private void UniqueIndexExceptionHandler(DbUpdateException exception)
+        {
+            if (exception.InnerException is SqlException sqlException && sqlException.Number == 2627)
+                throw new UniqueIndexException(exception.Message);
         }
     }
 }

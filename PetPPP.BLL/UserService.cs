@@ -1,4 +1,5 @@
-﻿using Core.DependencyInjectionExtensions;
+﻿using AutoMapper;
+using Core.DependencyInjectionExtensions;
 using DAL.Entities;
 using DAL.Repository;
 using DAL.UnitOfWork;
@@ -13,47 +14,51 @@ namespace PetPPP.BLL
     {
         private readonly IRepository<AppUser> _repository;
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IMapper _mapper;
 
-        public UserService(IRepository<AppUser> repository, IUnitOfWork unitOfWork)
+        public UserService(IRepository<AppUser> repository, IUnitOfWork unitOfWork, IMapper mapper)
         {
             _repository = repository;
             _unitOfWork = unitOfWork;
+            _mapper = mapper;
         }
 
         public async Task AddUserAsync(AppUserDTO userDTO, CancellationToken token)
         {
-            var user = new AppUser()
-            {
-                Email = userDTO.Email,
-                Username = userDTO.UserName,
-                Password = CreatePasswordHash(userDTO.Password)
-            };
+            var user = _mapper.Map<AppUser>(userDTO);
+            user.Password = CreatePasswordHash(userDTO.Password);
             await _repository.AddAsync(user, token);
             await _unitOfWork.SaveAsync(token);
         }
 
-        public async Task EditUserAsync(AppUserDTO userDTO, Guid id, CancellationToken token)
+        public async Task<bool> EditUserAsync(AppUserDTO userDTO, Guid id, CancellationToken token)
         {
-            var user = await _repository.FirstOrDeafultAsync(i => i.Id == id, token);
-            user.Email = userDTO.Email;
+            var user = await _repository.FirstOrDefaultAsync(i => i.Id == id, token);
+            if (user == null)
+                return false;
+            user = _mapper.Map<AppUser>(userDTO);
             _repository.Update(user);
             await _unitOfWork.SaveAsync(token);
+            return true;
         }
 
         public async Task<AppUser> GetUserByIdAsync(Guid id, CancellationToken token)
         {
-            return await _repository.FirstOrDeafultAsync(i => i.Id == id, token);
+            return await _repository.FirstOrDefaultAsync(i => i.Id == id, token);
         }
 
-        public async Task<bool> IsUserWithUsernameExists(string username, CancellationToken token)
+        public async Task<Guid> GetUserIdByUsername(string username, CancellationToken token)
         {
-            var user = await _repository.FirstOrDeafultAsync(i => i.Username == username, token);
-            return user != null;
+            var user = await _repository.FirstOrDefaultAsync(i => i.Username == username, token);
+            if (user != null)
+                return user.Id;
+            else
+                return Guid.Empty;
         }
 
-        public async Task<Guid> LoginUserAsync(AppUserDTO userDTO, CancellationToken token)
+        public async Task<Guid> LoginUserAsync(LoginDTO userDTO, CancellationToken token)
         {
-            var user = await _repository.FirstOrDeafultAsync(i => i.Username == userDTO.UserName, token);
+            var user = await _repository.FirstOrDefaultAsync(i => i.Username == userDTO.Username, token);
             if (VerifyPassword(userDTO.Password, user.Password))
             {
                 return user.Id;
@@ -84,7 +89,7 @@ namespace PetPPP.BLL
             var hash = der.GetBytes(20);
             for (int i = 0; i < 20; i++)
                 if (hashBytes[i + 16] != hash[i])
-                    throw new UnauthorizedAccessException();
+                    return false;
             return true;
         }
     }

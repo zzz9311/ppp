@@ -22,7 +22,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddSelfRegistered(typeof(Program).Assembly);
 builder.Services.AddAutoMapper(typeof(MappingProfile));
-builder.Services.UseDatabase();
+builder.Services.UseDatabase(builder.Configuration);
 builder.Services.UseServices();
 builder.Services.AddAuthentication(opt =>
 {

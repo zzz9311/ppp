@@ -35,7 +35,7 @@ namespace PetPPP.Middlewares
             var result = JsonConvert.SerializeObject(new
             {
                 StatusCode = StatusCodes.Status422UnprocessableEntity,
-                ErrorMessage = ex.Message,
+                ErrorMessage = "Unique constraint error",
             });
             httpContext.Response.ContentType = "application/json";
             httpContext.Response.StatusCode = 422;

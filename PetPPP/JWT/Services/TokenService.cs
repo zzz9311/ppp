@@ -35,7 +35,7 @@ namespace PetPPP.JWT.Services
             var tokenOptions = new JwtSecurityToken(
                 issuer: _settings.ValidIssuer,
                 audience: _settings.ValidAudience,
-                expires: DateTime.Now.AddMinutes(_settings.TokenValidityInMinutes),
+                expires: DateTime.UtcNow.AddMinutes(_settings.TokenValidityInMinutes),
                 signingCredentials: signinCredentials,
                 claims: claims
                 );

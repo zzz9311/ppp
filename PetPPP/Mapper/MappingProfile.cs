@@ -10,7 +10,8 @@ namespace PetPPP.Mapper
         public MappingProfile()
         {
             CreateMap<RegisterModel, AppUserDTO>();
-            CreateMap<LoginModel, AppUserDTO>();
+            CreateMap<LoginModel, LoginDTO>();
+            CreateMap<AppUserDTO, AppUser>();
         }
     }
 }
