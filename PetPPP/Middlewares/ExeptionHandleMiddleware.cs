@@ -25,20 +25,24 @@ namespace PetPPP.Middlewares
             {
                 if (ex is UniqueIndexException uniqueIndexEx)
                 {
-                    await HandleUniqueIndexExceptionAsync(httpContext, uniqueIndexEx);
+                    await HandleExceptionAsync(httpContext, uniqueIndexEx, HttpStatusCode.UnprocessableEntity);
+                }
+                if (ex is EntityNotFoundException entityNotFoundEx)
+                {
+                    await HandleExceptionAsync(httpContext, entityNotFoundEx, HttpStatusCode.NotFound);
                 }
             }
         }
 
-        public async Task HandleUniqueIndexExceptionAsync(HttpContext httpContext, UniqueIndexException ex)
+        public async Task HandleExceptionAsync(HttpContext httpContext, Exception ex, HttpStatusCode httpStatusCode)
         {
             var result = JsonConvert.SerializeObject(new
             {
-                StatusCode = StatusCodes.Status422UnprocessableEntity,
-                ErrorMessage = "Unique constraint error",
+                StatusCode = httpStatusCode,
+                ErrorMessage = ex.Message
             });
             httpContext.Response.ContentType = "application/json";
-            httpContext.Response.StatusCode = 422;
+            httpContext.Response.StatusCode = (int)httpStatusCode;
             await httpContext.Response.WriteAsync(result);
         }
     }

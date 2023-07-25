@@ -1,7 +1,9 @@
 using Core;
 using Core.DependencyInjectionExtensions;
 using DAL;
+using DAL.Data;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using PetPPP.BLL;
 using PetPPP.Extensions;

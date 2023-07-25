@@ -48,7 +48,7 @@ namespace DAL.UnitOfWork
         private void UniqueIndexExceptionHandler(DbUpdateException exception)
         {
             if (exception.InnerException is SqlException sqlException && sqlException.Number == 2627)
-                throw new UniqueIndexException(exception.Message);
+                throw new UniqueIndexException("Unique constraint error");
         }
     }
 }

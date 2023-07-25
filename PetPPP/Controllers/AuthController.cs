@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.VisualBasic;
 using PetPPP.BLL.Interfaces;
 using PetPPP.BLL.Interfaces.DTO;
+using PetPPP.BLL.Interfaces.Filters;
 using PetPPP.JWT;
 using PetPPP.JWT.Services;
 using PetPPP.Models;
@@ -30,7 +31,6 @@ namespace PetPPP.Controllers
             _refreshTokenService = refreshTokenService;
         }
 
-
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegisterModel model, CancellationToken token)
         {
@@ -40,7 +40,7 @@ namespace PetPPP.Controllers
             var user = _mapper.Map<AppUserDTO>(model);
 
             await _userService.AddUserAsync(user, token);
-            return Ok("Register success");
+            return Ok();
         }
 
         [HttpPost("login")]
@@ -59,8 +59,8 @@ namespace PetPPP.Controllers
             return Ok(new AuthenticatedResponse(accessToken, refreshToken));
         }
 
-        [HttpPost]
-        public async Task<IActionResult> RefreshToken([FromBody]TokenApiModel model, CancellationToken token)
+        [HttpPost("refresh")]
+        public async Task<IActionResult> RefreshToken([FromBody] TokenApiModel model, CancellationToken token)
         {
             if (model == null)
                 return BadRequest("Model is empty");
@@ -85,17 +85,17 @@ namespace PetPPP.Controllers
             return Ok(new AuthenticatedResponse(newAccessToken, newRefreshToken));
         }
 
-        [HttpPost]
+        [HttpPost("revoke/{userId}")]
         [Authorize]
-        public async Task<IActionResult> RevokeToken(string username, CancellationToken token)
+        public async Task<IActionResult> RevokeToken(Guid userId, CancellationToken token)
         {
-            var userId = await _userService.GetUserIdByUsername(username, token);
-            if (userId == Guid.Empty)
+            var user = (await _userService.GetUsersAsync(new UserFilter(userId), token)).First();
+            if (user.Id == Guid.Empty)
                 return BadRequest("User not found");
 
             Request.Headers.TryGetValue("user-agent", out var deviceInfo);
             if (await _refreshTokenService.RevokeUserRefreshTokenAsync(userId, deviceInfo, token))
-                return Ok("Revoke token success");
+                return Ok();
             else
                 return BadRequest("Revoke token failed");
         }

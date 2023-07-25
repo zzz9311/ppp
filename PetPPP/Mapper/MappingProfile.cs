@@ -11,7 +11,7 @@ namespace PetPPP.Mapper
         {
             CreateMap<RegisterModel, AppUserDTO>();
             CreateMap<LoginModel, LoginDTO>();
-            CreateMap<AppUserDTO, AppUser>();
+            CreateMap<AppUserDTO, AppUser>().ReverseMap();
         }
     }
 }

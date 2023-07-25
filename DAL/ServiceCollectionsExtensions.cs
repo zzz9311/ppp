@@ -16,7 +16,7 @@ namespace DAL
         public static IServiceCollection UseDatabase(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddSelfRegistered(typeof(ServiceCollectionExtensions).Assembly);
-            services.AddDbContext<ApplicationDbContext>(opt => opt.UseNpgsql(configuration.GetConnectionString("Default connection")));
+            services.AddDbContext<ApplicationDbContext>(opt => opt.UseNpgsql(configuration.GetConnectionString("DefaultConnection")));
             return services;
         }
     }

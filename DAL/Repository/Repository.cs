@@ -117,5 +117,25 @@ namespace DAL.Repository
         {
             _context.UpdateRange(entities);
         }
+
+        public T[] ToArray()
+        {
+            return GetQuery().ToArray();
+        }
+
+        public T[] ToArray(Expression<Func<T, bool>> expression)
+        {
+            return GetQuery().Where(expression).ToArray();
+        }
+
+        public async Task<T[]> ToArrayAsync(CancellationToken token)
+        {
+            return await GetQuery().ToArrayAsync(token);
+        }
+
+        public async Task<T[]> ToArrayAsync(Expression<Func<T, bool>> expression, CancellationToken token)
+        {
+            return await GetQuery().Where(expression).ToArrayAsync(token);
+        }
     }
 }

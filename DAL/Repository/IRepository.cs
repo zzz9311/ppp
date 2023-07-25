@@ -12,9 +12,13 @@ namespace DAL.Repository
     public interface IRepository<T> where T : class
     {
         List<T> ToList();
-        List<T> ToList(Expression<Func<T,bool>> expression);
+        List<T> ToList(Expression<Func<T, bool>> expression);
         Task<List<T>> ToListAsync(CancellationToken token);
         Task<List<T>> ToListAsync(Expression<Func<T, bool>> expression, CancellationToken token);
+        T[] ToArray();
+        T[] ToArray(Expression<Func<T, bool>> expression);
+        Task<T[]> ToArrayAsync(CancellationToken token);
+        Task<T[]> ToArrayAsync(Expression<Func<T, bool>> expression, CancellationToken token);
         T FirstOrDefault();
         T FirstOrDefault(Expression<Func<T, bool>> expression);
         Task<T> FirstOrDefaultAsync(CancellationToken token);

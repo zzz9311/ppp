@@ -1,10 +1,12 @@
 ﻿using AutoMapper;
 using Core.DependencyInjectionExtensions;
+using Core.Exceptions;
 using DAL.Entities;
 using DAL.Repository;
 using DAL.UnitOfWork;
 using PetPPP.BLL.Interfaces;
 using PetPPP.BLL.Interfaces.DTO;
+using PetPPP.BLL.Interfaces.Filters;
 using System.Security.Cryptography;
 
 namespace PetPPP.BLL
@@ -31,29 +33,32 @@ namespace PetPPP.BLL
             await _unitOfWork.SaveAsync(token);
         }
 
-        public async Task<bool> EditUserAsync(AppUserDTO userDTO, Guid id, CancellationToken token)
+        public async Task<AppUserDTO> EditUserAsync(AppUserDTO userDTO, Guid id, CancellationToken token)
         {
-            var user = await _repository.FirstOrDefaultAsync(i => i.Id == id, token);
-            if (user == null)
-                return false;
+            var user = await _repository.FirstOrDefaultAsync(i => i.Id == id, token)
+                ?? throw new EntityNotFoundException("User with Id not found");
             user = _mapper.Map<AppUser>(userDTO);
             _repository.Update(user);
             await _unitOfWork.SaveAsync(token);
-            return true;
+            return _mapper.Map<AppUserDTO>(user);
         }
 
-        public async Task<AppUser> GetUserByIdAsync(Guid id, CancellationToken token)
+        public async Task<IEnumerable<AppUser>> GetUsersAsync(UserFilter filter, CancellationToken token)
         {
-            return await _repository.FirstOrDefaultAsync(i => i.Id == id, token);
-        }
-
-        public async Task<Guid> GetUserIdByUsername(string username, CancellationToken token)
-        {
-            var user = await _repository.FirstOrDefaultAsync(i => i.Username == username, token);
-            if (user != null)
-                return user.Id;
+            var result = new List<AppUser>();
+            if (filter.Id.HasValue)
+            {
+                result.Add(await _repository.FirstOrDefaultAsync(i => i.Id == filter.Id, token));
+            }
+            else if (filter.Username != null)
+            {
+                result.Add(await _repository.FirstOrDefaultAsync(i => i.Username == filter.Username, token));
+            }
             else
-                return Guid.Empty;
+            {
+                result = await _repository.ToListAsync(token);
+            }
+            return result;
         }
 
         public async Task<Guid> LoginUserAsync(LoginDTO userDTO, CancellationToken token)

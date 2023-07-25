@@ -3,7 +3,17 @@
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
+    <Nullable>disable</Nullable>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Core.csproj" />
+    <ProjectReference Include="..\DAL\DAL.csproj" />
+    <ProjectReference Include="..\PetPPP.BLL.Interfaces\PetPPP.BLL.Interfaces.csproj" />
+  </ItemGroup>
 
 </Project>

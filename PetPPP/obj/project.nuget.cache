@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "oOxLG8Kf16kl6Zp6GsDJWfJtZzq1odH+WBGKljXA0h4GngdT9Gkc2nB+FfOKa/GOi23GJgygHrCmSnAx1JBtcA==",
+  "dgSpecHash": "5csbhTu0fQRm/2kMt6hPTkCvqMRz3UCsTLo/S6cyflSQ/QFUybUH9RAsaEFNrpIG+Ao4qFn+iyQB5/Zq5eGGgA==",
   "success": true,
   "projectFilePath": "E:\\BOTs\\GitHub\\ppp\\PetPPP\\PetPPP.csproj",
   "expectedPackageFiles": [
@@ -11,9 +11,9 @@
     "C:\\Users\\Олег\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\7.0.9\\microsoft.aspnetcore.mvc.newtonsoftjson.7.0.9.nupkg.sha512",
     "C:\\Users\\Олег\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.0-preview.6.22330.3\\microsoft.aspnetcore.openapi.7.0.0-preview.6.22330.3.nupkg.sha512",
     "C:\\Users\\Олег\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
-    "C:\\Users\\Олег\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.5\\microsoft.entityframeworkcore.7.0.5.nupkg.sha512",
-    "C:\\Users\\Олег\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.5\\microsoft.entityframeworkcore.abstractions.7.0.5.nupkg.sha512",
-    "C:\\Users\\Олег\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\7.0.5\\microsoft.entityframeworkcore.analyzers.7.0.5.nupkg.sha512",
+    "C:\\Users\\Олег\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.9\\microsoft.entityframeworkcore.7.0.9.nupkg.sha512",
+    "C:\\Users\\Олег\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.9\\microsoft.entityframeworkcore.abstractions.7.0.9.nupkg.sha512",
+    "C:\\Users\\Олег\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\7.0.9\\microsoft.entityframeworkcore.analyzers.7.0.9.nupkg.sha512",
     "C:\\Users\\Олег\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\7.0.5\\microsoft.entityframeworkcore.relational.7.0.5.nupkg.sha512",
     "C:\\Users\\Олег\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\Олег\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\7.0.0\\microsoft.extensions.caching.abstractions.7.0.0.nupkg.sha512",
