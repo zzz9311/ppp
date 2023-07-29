@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "jinKebmXPi65rtiRbI+/KfHiawkcr2HHYKGgmqn8yJjUPUxYdwBVce2pAS6isFAKD3de1fUvfdRDCDbonEFWXg==",
+  "success": true,
+  "projectFilePath": "K:\\Users\\nikol\\source\\repos\\PetPPP\\src\\ServiceContracts\\ServiceContracts.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\nikol\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.6\\microsoft.netcore.app.ref.6.0.6.nupkg.sha512",
+    "C:\\Users\\nikol\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.6\\microsoft.windowsdesktop.app.ref.6.0.6.nupkg.sha512",
+    "C:\\Users\\nikol\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.6\\microsoft.aspnetcore.app.ref.6.0.6.nupkg.sha512"
+  ],
+  "logs": []
+}

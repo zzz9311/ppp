@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "DcH8vJzIJnT5xqj2uQI8Jx/1qOPa/NYNfS+SNCIf3ferZ71ubM2ZV3oydh/QKtrh+WpQRgfaRFJA5Gngto9UrQ==",
+  "success": true,
+  "projectFilePath": "K:\\Users\\nikol\\source\\repos\\PetPPP\\src\\Core\\Core.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\nikol\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0\\microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512",
+    "C:\\Users\\nikol\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.6\\microsoft.netcore.app.ref.6.0.6.nupkg.sha512",
+    "C:\\Users\\nikol\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.6\\microsoft.windowsdesktop.app.ref.6.0.6.nupkg.sha512",
+    "C:\\Users\\nikol\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.6\\microsoft.aspnetcore.app.ref.6.0.6.nupkg.sha512"
+  ],
+  "logs": []
+}

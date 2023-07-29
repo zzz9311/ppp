@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "rAuLvpIjSOAZf2wlsMhvKN2TDwpNwS5jQYH51sNP5MgRfvVyDQ9nyrpmDbx4sQ5xN1z57vGJieaCIT22CgoIPQ==",
+  "success": true,
+  "projectFilePath": "K:\\Users\\nikol\\source\\repos\\PetPPP\\src\\CommonBLL\\CommonBLL.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\nikol\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.6\\microsoft.netcore.app.ref.6.0.6.nupkg.sha512",
+    "C:\\Users\\nikol\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.6\\microsoft.windowsdesktop.app.ref.6.0.6.nupkg.sha512",
+    "C:\\Users\\nikol\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.6\\microsoft.aspnetcore.app.ref.6.0.6.nupkg.sha512",
+    "C:\\Users\\nikol\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.6\\microsoft.netcore.app.host.win-x64.6.0.6.nupkg.sha512"
+  ],
+  "logs": []
+}
