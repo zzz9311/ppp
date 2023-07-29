@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace PetPPP.Extensions
 {
-    public static class DataExtensions
+    public static class MigrationExtensions
     {
         public static WebApplication ApplyMigrations(this WebApplication app)
         {

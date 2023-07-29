@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DAL.Entities
+﻿namespace DAL.Entities
 {
     public class UsersRefreshToken
     {
@@ -12,6 +6,7 @@ namespace DAL.Entities
         {
             RefreshTokenExpiryTime = DateTime.UtcNow.AddDays(7);
         }
+        
         public int Id { get; init; }
         public Guid UserId { get; init; }
         public string RefreshToken { get; init; }

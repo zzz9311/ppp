@@ -1,12 +1,11 @@
 ﻿using AutoMapper;
+using Core.Exceptions;
 using DAL.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.VisualBasic;
 using PetPPP.BLL.Interfaces;
 using PetPPP.BLL.Interfaces.DTO;
-using PetPPP.BLL.Interfaces.Filters;
-using PetPPP.JWT;
+using PetPPP.BLL.Interfaces.Users;
 using PetPPP.JWT.Services;
 using PetPPP.Models;
 using PetPPP.Responses;
@@ -22,7 +21,9 @@ namespace PetPPP.Controllers
         private readonly IRefreshTokenService _refreshTokenService;
         private readonly IMapper _mapper;
 
-        public AuthController(IUserService userService, ITokenService tokenService, IMapper mapper,
+        public AuthController(IUserService userService,
+            ITokenService tokenService,
+            IMapper mapper,
             IRefreshTokenService refreshTokenService)
         {
             _userService = userService;
@@ -37,9 +38,9 @@ namespace PetPPP.Controllers
             if (model == null)
                 return BadRequest("Model is empty");
 
-            var user = _mapper.Map<AppUserDTO>(model);
+            var user = _mapper.Map<UserChangeableDTO>(model);
 
-            await _userService.AddUserAsync(user, token);
+            await _userService.AddAsync(user, token);
             return Ok();
         }
 
@@ -48,7 +49,7 @@ namespace PetPPP.Controllers
         {
             if (model == null)
                 return BadRequest("Model is empty");
-            var userId = await _userService.LoginUserAsync(_mapper.Map<LoginDTO>(model), token);
+            var userId = await _userService.LoginAsync(_mapper.Map<LoginDTO>(model), token);
             if (userId == Guid.Empty)
                 return Unauthorized();
             var accessToken = _tokenService.GenerateAccessToken(userId);
@@ -72,10 +73,11 @@ namespace PetPPP.Controllers
             Request.Headers.TryGetValue("user-agent", out var deviceInfo);
             var userId = new Guid(principal.FindFirst("Id").Value);
             var userRefreshToken = await _refreshTokenService.GetUserRefreshTokenAsync(userId, deviceInfo, token);
+            
             if (userRefreshToken == null || refreshToken != userRefreshToken.RefreshToken ||
-                userRefreshToken.RefreshTokenExpiryTime < DateTime.Now)
+                userRefreshToken.RefreshTokenExpiryTime < DateTime.UtcNow)
             {
-                return BadRequest("Invalid client request");
+                return Unauthorized();
             }
 
             var newAccessToken = _tokenService.GenerateAccessToken(userId);
@@ -87,17 +89,18 @@ namespace PetPPP.Controllers
 
         [HttpPost("revoke/{userId}")]
         [Authorize]
-        public async Task<IActionResult> RevokeToken(Guid userId, CancellationToken token)
+        public async Task<IActionResult> RevokeToken([FromRoute] Guid userId, CancellationToken token)
         {
-            var user = (await _userService.GetUsersAsync(new UserFilter(userId), token)).First();
-            if (user.Id == Guid.Empty)
-                return BadRequest("User not found");
-
+            var user = await _userService.GetAsync(userId, token) ??
+                       throw new EntityNotFoundException("User was not found");
+            
             Request.Headers.TryGetValue("user-agent", out var deviceInfo);
-            if (await _refreshTokenService.RevokeUserRefreshTokenAsync(userId, deviceInfo, token))
+            if (await _refreshTokenService.RevokeUserRefreshTokenAsync(user.Id, deviceInfo, token))
+            {
                 return Ok();
-            else
-                return BadRequest("Revoke token failed");
+            }
+            
+            return BadRequest("Revoke token failed");
         }
     }
 }

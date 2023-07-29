@@ -2,6 +2,7 @@
 using DAL.Entities;
 using DAL.Models;
 using PetPPP.BLL.Interfaces.DTO;
+using PetPPP.BLL.Interfaces.Users;
 
 namespace PetPPP.Mapper
 {
@@ -9,9 +10,9 @@ namespace PetPPP.Mapper
     {
         public MappingProfile()
         {
-            CreateMap<RegisterModel, AppUserDTO>();
+            CreateMap<RegisterModel, UserChangeableDTO>();
             CreateMap<LoginModel, LoginDTO>();
-            CreateMap<AppUserDTO, AppUser>().ReverseMap();
+            CreateMap<UserChangeableDTO, AppUser>().ReverseMap();
         }
     }
 }

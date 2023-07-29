@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "VH+VsTMEYzlKhJKNzlhaZ2zRSxnEvzQO5X9i9TdO+Bmo0DjYCr7me1vjWnDL+RpZzI7C3FsmH8oKs9eUTfjX7Q==",
+  "dgSpecHash": "dZaKf0529MGCjdjI6r7FvJP3MHgxhlUzAlKiIm0UdSKBDQ5WZCkru9ongQ8y4LzKxK6iawL2znigWWkiZcnvlQ==",
   "success": true,
-  "projectFilePath": "E:\\BOTs\\GitHub\\ppp\\ServiceContracts\\ServiceContracts.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "K:\\Users\\nikol\\source\\repos\\PetPPP\\ServiceContracts\\ServiceContracts.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\nikol\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.6\\microsoft.netcore.app.ref.6.0.6.nupkg.sha512",
+    "C:\\Users\\nikol\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.6\\microsoft.windowsdesktop.app.ref.6.0.6.nupkg.sha512",
+    "C:\\Users\\nikol\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.6\\microsoft.aspnetcore.app.ref.6.0.6.nupkg.sha512"
+  ],
   "logs": []
 }

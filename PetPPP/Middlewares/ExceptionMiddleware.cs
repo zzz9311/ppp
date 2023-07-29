@@ -6,11 +6,11 @@ using System.Net;
 
 namespace PetPPP.Middlewares
 {
-    public class ExeptionHandleMiddleware
+    public class ExceptionMiddleware
     {
         private readonly RequestDelegate _next;
 
-        public ExeptionHandleMiddleware(RequestDelegate requestDelegate)
+        public ExceptionMiddleware(RequestDelegate requestDelegate)
         {
             _next = requestDelegate;
         }
@@ -41,6 +41,7 @@ namespace PetPPP.Middlewares
                 StatusCode = httpStatusCode,
                 ErrorMessage = ex.Message
             });
+            
             httpContext.Response.ContentType = "application/json";
             httpContext.Response.StatusCode = (int)httpStatusCode;
             await httpContext.Response.WriteAsync(result);

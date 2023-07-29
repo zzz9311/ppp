@@ -13,7 +13,8 @@ namespace PetPPP.Responses
             Token = token;
             RefreshToken = refreshToken;
         }
-        public string Token { get; set; }
-        public string RefreshToken { get; set; }
+
+        public string Token { get; }
+        public string RefreshToken { get; }
     }
 }

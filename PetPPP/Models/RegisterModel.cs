@@ -10,13 +10,13 @@ namespace DAL.Models
     public class RegisterModel
     {
         [Required(ErrorMessage = "Обязательное поле")]
-        public string Username { get; set; }
+        public string Username { get; init; }
 
         [EmailAddress]
         [Required(ErrorMessage = "Обязательное поле")]
-        public string Email { get; set; }
+        public string Email { get; init; }
 
         [Required(ErrorMessage = "Обязательное поле")]
-        public string Password { get; set; }
+        public string Password { get; init; }
     }
 }

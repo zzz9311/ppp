@@ -1,15 +1,16 @@
-﻿using AutoMapper;
+﻿using System.Security.Cryptography;
+using AutoMapper;
 using Core.DependencyInjectionExtensions;
 using Core.Exceptions;
 using DAL.Entities;
+using DAL.Queries;
 using DAL.Repository;
 using DAL.UnitOfWork;
-using PetPPP.BLL.Interfaces;
 using PetPPP.BLL.Interfaces.DTO;
-using PetPPP.BLL.Interfaces.Filters;
-using System.Security.Cryptography;
+using PetPPP.BLL.Interfaces.QueryCreators;
+using PetPPP.BLL.Interfaces.Users;
 
-namespace PetPPP.BLL
+namespace PetPPP.BLL.Users
 {
     [SelfRegistered(typeof(IUserService))]
     public class UserService : IUserService
@@ -17,59 +18,65 @@ namespace PetPPP.BLL
         private readonly IRepository<AppUser> _repository;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
+        private readonly IQueryCreator<AppUser, UserFilter> _queryCreator;
+        private readonly IQueryExecutor<AppUser> _executor;
 
-        public UserService(IRepository<AppUser> repository, IUnitOfWork unitOfWork, IMapper mapper)
+        public UserService(IRepository<AppUser> repository,
+            IUnitOfWork unitOfWork,
+            IMapper mapper,
+            IQueryCreator<AppUser, UserFilter> queryCreator,
+            IQueryExecutor<AppUser> executor)
         {
             _repository = repository;
             _unitOfWork = unitOfWork;
             _mapper = mapper;
+            _queryCreator = queryCreator;
+            _executor = executor;
         }
 
-        public async Task AddUserAsync(AppUserDTO userDTO, CancellationToken token)
+        public async Task AddAsync(UserChangeableDTO userChangeableDto, CancellationToken token)
         {
-            var user = _mapper.Map<AppUser>(userDTO);
-            user.Password = CreatePasswordHash(userDTO.Password);
+            var user = _mapper.Map<AppUser>(userChangeableDto);
+            user.Password = CreatePasswordHash(userChangeableDto.Password);
+            
             await _repository.AddAsync(user, token);
             await _unitOfWork.SaveAsync(token);
         }
 
-        public async Task<AppUserDTO> EditUserAsync(AppUserDTO userDTO, Guid id, CancellationToken token)
+        public async Task<UserDTO> EditAsync(Guid id, UserChangeableDTO userChangeableDto, CancellationToken token)
         {
             var user = await _repository.FirstOrDefaultAsync(i => i.Id == id, token)
                 ?? throw new EntityNotFoundException("User with Id not found");
-            user = _mapper.Map<AppUser>(userDTO);
-            _repository.Update(user);
+            
+            _mapper.Map(userChangeableDto, user);
+            
             await _unitOfWork.SaveAsync(token);
-            return _mapper.Map<AppUserDTO>(user);
+            return _mapper.Map<UserDTO>(user);
         }
 
-        public async Task<IEnumerable<AppUser>> GetUsersAsync(UserFilter filter, CancellationToken token)
+        public async Task<UserDTO[]> ListAsync(UserFilter filter, CancellationToken token = default)
         {
-            var result = new List<AppUser>();
-            if (filter.Id.HasValue)
-            {
-                result.Add(await _repository.FirstOrDefaultAsync(i => i.Id == filter.Id, token));
-            }
-            else if (filter.Username != null)
-            {
-                result.Add(await _repository.FirstOrDefaultAsync(i => i.Username == filter.Username, token));
-            }
-            else
-            {
-                result = await _repository.ToListAsync(token);
-            }
-            return result;
+            var query = _queryCreator.Create(filter);
+            var users = await _executor.ExecuteAsync(query, token);
+
+            return _mapper.Map<UserDTO[]>(users);
         }
 
-        public async Task<Guid> LoginUserAsync(LoginDTO userDTO, CancellationToken token)
+        public async Task<UserDTO> GetAsync(Guid id, CancellationToken cancellationToken = default)
+        {
+            var user = await _repository.FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
+            return _mapper.Map<UserDTO>(user);
+        }
+        
+        public async Task<Guid> LoginAsync(LoginDTO userDTO, CancellationToken token)
         {
             var user = await _repository.FirstOrDefaultAsync(i => i.Username == userDTO.Username, token);
-            if (VerifyPassword(userDTO.Password, user.Password))
+            if (VerifyHashedPassword(userDTO.Password, user.Password))
             {
                 return user.Id;
             }
-            else
-                return Guid.Empty;
+
+            return Guid.Empty;
         }
 
         private string CreatePasswordHash(string password)
@@ -85,7 +92,7 @@ namespace PetPPP.BLL
             return Convert.ToBase64String(hashBytes);
         }
 
-        private bool VerifyPassword(string enteredPassword, string storedPasswordHash)
+        private bool VerifyHashedPassword(string enteredPassword, string storedPasswordHash)
         {
             var hashBytes = Convert.FromBase64String(storedPasswordHash);
             var salt = new byte[16];

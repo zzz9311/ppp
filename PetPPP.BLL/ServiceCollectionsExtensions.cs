@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PetPPP.BLL.Users;
 
 namespace PetPPP.BLL
 {
@@ -12,8 +13,7 @@ namespace PetPPP.BLL
     {
         public static IServiceCollection UseServices(this IServiceCollection services)
         {
-            services.AddSelfRegistered(typeof(UserService).Assembly);
-            return services;
+            return services.AddSelfRegistered(typeof(UserService).Assembly);
         }
     }
 }

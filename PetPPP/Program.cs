@@ -13,6 +13,8 @@ using Rebus.Config;
 using Rebus.Routing.TypeBased;
 using ServiceContracts;
 using System.Text;
+using Microsoft.AspNetCore.Diagnostics;
+using PetPPP.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -40,7 +42,9 @@ builder.Services.AddAuthentication(opt =>
             ValidateLifetime = true,
             ValidateIssuerSigningKey = true,
             ClockSkew = TimeSpan.Zero,
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration.GetSection("JWT").GetValue<string>("Secret")))
+            IssuerSigningKey =
+                new SymmetricSecurityKey(
+                    Encoding.UTF8.GetBytes(builder.Configuration.GetSection("JWT").GetValue<string>("Secret")))
         };
     });
 
@@ -73,6 +77,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.UseMiddleware<ExceptionMiddleware>();
 
 app.UseHttpsRedirection();
 app.ApplyMigrations();

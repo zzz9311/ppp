@@ -18,17 +18,24 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/04c271c0b2ee499c99f3d8279c26d889d000/c5/3050b044/BusWrapper.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/61ed7b56281e4705912e62c615759a5963888/43/99ab8268/ExceptionHandlerMiddleware.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/894c1816165c482db1769787d72312281ae00/e9/b8622088/PostgreSqlTransportConfigurationExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/293969f906ba0bdb82bf8d54bfb4dc3559614a802df45123c453767f3d42f/BadRequestObjectResult.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/47d721eb4553c36ced37a88985d35c86a82dd411fb9f4ebfe639211c825e33d/DistributedCacheEntryOptions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/641f89395bbd523669c66e4a9f8e9963ecfe23fd34853dd5ca2ede97da794971/OneWayClientBusDecorator.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/81448adb77d6218ef6ba02f79a558e0e6752d5c20c8fe3d21bee37b9375f4/RedisCacheImpl.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/81a3bcf4bb6aa5e62a9839f9cfeeba6126496f4fa07d1e57b27a5176e42525/ControllerBase.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9a681c729aca2ccbcfe4f9949c066d9bff4aac0b76afb62deee3ebffd93ab5e/DistributedCacheExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/a23114ceef178045f323f9a133ae95278310829ab81a84ba7b3b642e223edb/RedisCache.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/aaf9539460c384f5cd168461b3dd7a489c1365638e27d88c9a639683968efe1/UnauthorizedResult.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/abe193ec7107fe257fbe56564e41d8e7f2f3527b62fbdb99f9337fcffa0fdd7/EndpointMethodInfoApiExplorerServiceCollectionExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/df6bdad2b75212949a84cb833f949d515ec78fb3e488e2aa67e7774ef5e0/StackExchangeRedisCacheServiceCollectionExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e83dcefaba576b44ff320b4fb7fdb2cbfff182e7ee18bc2987da5bbecf921/RebusLoggingConfigurer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e9ab36d97f5243f070c9a179aa55cc824024319e138e2af8581d1b177a379/MemoryCacheEntryOptions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ece7ad7dcfbc2c50d86b57f43f336a79c9ef55748cf3923bbb2d9cb3caf3b/RebusBus.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ConsoleApp/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/PetPPP.BLL/ServiceCollectionsExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/PetPPP.BLL/Users/UserService.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -169,6 +176,7 @@
       <workItem from="1689173041912" duration="9165000" />
       <workItem from="1689230538374" duration="3572000" />
       <workItem from="1689257635974" duration="1344000" />
+      <workItem from="1690616508905" duration="5789000" />
     </task>
     <servers />
   </component>

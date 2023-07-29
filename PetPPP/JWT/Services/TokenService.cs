@@ -15,12 +15,10 @@ namespace PetPPP.JWT.Services
     public class TokenService : ITokenService
     {
         private readonly JWTSettings _settings;
-        private readonly IRepository<UsersRefreshToken> _repository;
 
-        public TokenService(IOptions<JWTSettings> options, IRepository<UsersRefreshToken> repository)
+        public TokenService(IOptions<JWTSettings> options)
         {
             _settings = options.Value;
-            _repository = repository;
         }
         public string GenerateAccessToken(Guid id)
         {
@@ -29,7 +27,7 @@ namespace PetPPP.JWT.Services
 
             var claims = new List<Claim>()
             {
-                new Claim("Id", id.ToString())
+                new("Id", id.ToString())
             };
 
             var tokenOptions = new JwtSecurityToken(

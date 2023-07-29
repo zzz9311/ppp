@@ -2,14 +2,7 @@
 using DAL.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
-using Microsoft.EntityFrameworkCore.Query.Internal;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace DAL.Repository
 {
@@ -24,7 +17,7 @@ namespace DAL.Repository
         {
             _context = context;
             _dbSet = _context.Set<T>();
-            _query = _context.Set<T>();
+            _query = _dbSet;
         }
         public void Add(T entity)
         {
@@ -40,6 +33,7 @@ namespace DAL.Repository
         {
             return _query.Any(expression);
         } 
+        
         public Task<bool> AnyAsync(Expression<Func<T, bool>> expression, CancellationToken token)
         {
             return GetQuery().AnyAsync(expression, token);
@@ -88,6 +82,7 @@ namespace DAL.Repository
         {
             return GetQuery().ToList();
         }
+        
         public List<T> ToList(Expression<Func<T, bool>> expression)
         {
             return GetQuery().Where(expression).ToList();

@@ -1,23 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "E:\\BOTs\\GitHub\\ppp\\PetPPP\\PetPPP.csproj": {}
+    "K:\\Users\\nikol\\source\\repos\\PetPPP\\PetPPP\\PetPPP.csproj": {}
   },
   "projects": {
-    "E:\\BOTs\\GitHub\\ppp\\Core\\Core.csproj": {
+    "K:\\Users\\nikol\\source\\repos\\PetPPP\\Core\\Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\BOTs\\GitHub\\ppp\\Core\\Core.csproj",
+        "projectUniqueName": "K:\\Users\\nikol\\source\\repos\\PetPPP\\Core\\Core.csproj",
         "projectName": "Core",
-        "projectPath": "E:\\BOTs\\GitHub\\ppp\\Core\\Core.csproj",
-        "packagesPath": "C:\\Users\\Олег\\.nuget\\packages\\",
-        "outputPath": "E:\\BOTs\\GitHub\\ppp\\Core\\obj\\",
+        "projectPath": "K:\\Users\\nikol\\source\\repos\\PetPPP\\Core\\Core.csproj",
+        "packagesPath": "C:\\Users\\nikol\\.nuget\\packages\\",
+        "outputPath": "K:\\Users\\nikol\\source\\repos\\PetPPP\\Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "K:\\Program Files (x86)\\DevExpress 21.2\\Components\\Offline Packages",
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Олег\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\nikol\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 21.2.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -25,6 +28,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "K:\\Program Files (x86)\\DevExpress 21.2\\Components\\System\\Components\\Packages": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -59,29 +63,46 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.6, 6.0.6]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.6, 6.0.6]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.6, 6.0.6]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100-preview.6.22352.1\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\BOTs\\GitHub\\ppp\\DAL\\DAL.csproj": {
+    "K:\\Users\\nikol\\source\\repos\\PetPPP\\DAL\\DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\BOTs\\GitHub\\ppp\\DAL\\DAL.csproj",
+        "projectUniqueName": "K:\\Users\\nikol\\source\\repos\\PetPPP\\DAL\\DAL.csproj",
         "projectName": "DAL",
-        "projectPath": "E:\\BOTs\\GitHub\\ppp\\DAL\\DAL.csproj",
-        "packagesPath": "C:\\Users\\Олег\\.nuget\\packages\\",
-        "outputPath": "E:\\BOTs\\GitHub\\ppp\\DAL\\obj\\",
+        "projectPath": "K:\\Users\\nikol\\source\\repos\\PetPPP\\DAL\\DAL.csproj",
+        "packagesPath": "C:\\Users\\nikol\\.nuget\\packages\\",
+        "outputPath": "K:\\Users\\nikol\\source\\repos\\PetPPP\\DAL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "K:\\Program Files (x86)\\DevExpress 21.2\\Components\\Offline Packages",
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Олег\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\nikol\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 21.2.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -89,14 +110,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "K:\\Program Files (x86)\\DevExpress 21.2\\Components\\System\\Components\\Packages": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "E:\\BOTs\\GitHub\\ppp\\Core\\Core.csproj": {
-                "projectPath": "E:\\BOTs\\GitHub\\ppp\\Core\\Core.csproj"
+              "K:\\Users\\nikol\\source\\repos\\PetPPP\\Core\\Core.csproj": {
+                "projectPath": "K:\\Users\\nikol\\source\\repos\\PetPPP\\Core\\Core.csproj"
               }
             }
           }
@@ -152,24 +174,27 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100-preview.6.22352.1\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\BOTs\\GitHub\\ppp\\PetPPP.BLL.Interfaces\\PetPPP.BLL.Interfaces.csproj": {
+    "K:\\Users\\nikol\\source\\repos\\PetPPP\\PetPPP.BLL.Interfaces\\PetPPP.BLL.Interfaces.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\BOTs\\GitHub\\ppp\\PetPPP.BLL.Interfaces\\PetPPP.BLL.Interfaces.csproj",
+        "projectUniqueName": "K:\\Users\\nikol\\source\\repos\\PetPPP\\PetPPP.BLL.Interfaces\\PetPPP.BLL.Interfaces.csproj",
         "projectName": "PetPPP.BLL.Interfaces",
-        "projectPath": "E:\\BOTs\\GitHub\\ppp\\PetPPP.BLL.Interfaces\\PetPPP.BLL.Interfaces.csproj",
-        "packagesPath": "C:\\Users\\Олег\\.nuget\\packages\\",
-        "outputPath": "E:\\BOTs\\GitHub\\ppp\\PetPPP.BLL.Interfaces\\obj\\",
+        "projectPath": "K:\\Users\\nikol\\source\\repos\\PetPPP\\PetPPP.BLL.Interfaces\\PetPPP.BLL.Interfaces.csproj",
+        "packagesPath": "C:\\Users\\nikol\\.nuget\\packages\\",
+        "outputPath": "K:\\Users\\nikol\\source\\repos\\PetPPP\\PetPPP.BLL.Interfaces\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "K:\\Program Files (x86)\\DevExpress 21.2\\Components\\Offline Packages",
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Олег\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\nikol\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 21.2.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -177,14 +202,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "K:\\Program Files (x86)\\DevExpress 21.2\\Components\\System\\Components\\Packages": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "E:\\BOTs\\GitHub\\ppp\\DAL\\DAL.csproj": {
-                "projectPath": "E:\\BOTs\\GitHub\\ppp\\DAL\\DAL.csproj"
+              "K:\\Users\\nikol\\source\\repos\\PetPPP\\DAL\\DAL.csproj": {
+                "projectPath": "K:\\Users\\nikol\\source\\repos\\PetPPP\\DAL\\DAL.csproj"
               }
             }
           }
@@ -214,24 +240,27 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100-preview.6.22352.1\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\BOTs\\GitHub\\ppp\\PetPPP.BLL\\PetPPP.BLL.csproj": {
+    "K:\\Users\\nikol\\source\\repos\\PetPPP\\PetPPP.BLL\\PetPPP.BLL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\BOTs\\GitHub\\ppp\\PetPPP.BLL\\PetPPP.BLL.csproj",
+        "projectUniqueName": "K:\\Users\\nikol\\source\\repos\\PetPPP\\PetPPP.BLL\\PetPPP.BLL.csproj",
         "projectName": "PetPPP.BLL",
-        "projectPath": "E:\\BOTs\\GitHub\\ppp\\PetPPP.BLL\\PetPPP.BLL.csproj",
-        "packagesPath": "C:\\Users\\Олег\\.nuget\\packages\\",
-        "outputPath": "E:\\BOTs\\GitHub\\ppp\\PetPPP.BLL\\obj\\",
+        "projectPath": "K:\\Users\\nikol\\source\\repos\\PetPPP\\PetPPP.BLL\\PetPPP.BLL.csproj",
+        "packagesPath": "C:\\Users\\nikol\\.nuget\\packages\\",
+        "outputPath": "K:\\Users\\nikol\\source\\repos\\PetPPP\\PetPPP.BLL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "K:\\Program Files (x86)\\DevExpress 21.2\\Components\\Offline Packages",
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Олег\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\nikol\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 21.2.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -239,20 +268,21 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "K:\\Program Files (x86)\\DevExpress 21.2\\Components\\System\\Components\\Packages": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "E:\\BOTs\\GitHub\\ppp\\Core\\Core.csproj": {
-                "projectPath": "E:\\BOTs\\GitHub\\ppp\\Core\\Core.csproj"
+              "K:\\Users\\nikol\\source\\repos\\PetPPP\\Core\\Core.csproj": {
+                "projectPath": "K:\\Users\\nikol\\source\\repos\\PetPPP\\Core\\Core.csproj"
               },
-              "E:\\BOTs\\GitHub\\ppp\\DAL\\DAL.csproj": {
-                "projectPath": "E:\\BOTs\\GitHub\\ppp\\DAL\\DAL.csproj"
+              "K:\\Users\\nikol\\source\\repos\\PetPPP\\DAL\\DAL.csproj": {
+                "projectPath": "K:\\Users\\nikol\\source\\repos\\PetPPP\\DAL\\DAL.csproj"
               },
-              "E:\\BOTs\\GitHub\\ppp\\PetPPP.BLL.Interfaces\\PetPPP.BLL.Interfaces.csproj": {
-                "projectPath": "E:\\BOTs\\GitHub\\ppp\\PetPPP.BLL.Interfaces\\PetPPP.BLL.Interfaces.csproj"
+              "K:\\Users\\nikol\\source\\repos\\PetPPP\\PetPPP.BLL.Interfaces\\PetPPP.BLL.Interfaces.csproj": {
+                "projectPath": "K:\\Users\\nikol\\source\\repos\\PetPPP\\PetPPP.BLL.Interfaces\\PetPPP.BLL.Interfaces.csproj"
               }
             }
           }
@@ -288,24 +318,27 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100-preview.6.22352.1\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\BOTs\\GitHub\\ppp\\PetPPP\\PetPPP.csproj": {
+    "K:\\Users\\nikol\\source\\repos\\PetPPP\\PetPPP\\PetPPP.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\BOTs\\GitHub\\ppp\\PetPPP\\PetPPP.csproj",
+        "projectUniqueName": "K:\\Users\\nikol\\source\\repos\\PetPPP\\PetPPP\\PetPPP.csproj",
         "projectName": "PetPPP",
-        "projectPath": "E:\\BOTs\\GitHub\\ppp\\PetPPP\\PetPPP.csproj",
-        "packagesPath": "C:\\Users\\Олег\\.nuget\\packages\\",
-        "outputPath": "E:\\BOTs\\GitHub\\ppp\\PetPPP\\obj\\",
+        "projectPath": "K:\\Users\\nikol\\source\\repos\\PetPPP\\PetPPP\\PetPPP.csproj",
+        "packagesPath": "C:\\Users\\nikol\\.nuget\\packages\\",
+        "outputPath": "K:\\Users\\nikol\\source\\repos\\PetPPP\\PetPPP\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "K:\\Program Files (x86)\\DevExpress 21.2\\Components\\Offline Packages",
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Олег\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\nikol\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 21.2.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -313,26 +346,27 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "K:\\Program Files (x86)\\DevExpress 21.2\\Components\\System\\Components\\Packages": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "E:\\BOTs\\GitHub\\ppp\\Core\\Core.csproj": {
-                "projectPath": "E:\\BOTs\\GitHub\\ppp\\Core\\Core.csproj"
+              "K:\\Users\\nikol\\source\\repos\\PetPPP\\Core\\Core.csproj": {
+                "projectPath": "K:\\Users\\nikol\\source\\repos\\PetPPP\\Core\\Core.csproj"
               },
-              "E:\\BOTs\\GitHub\\ppp\\DAL\\DAL.csproj": {
-                "projectPath": "E:\\BOTs\\GitHub\\ppp\\DAL\\DAL.csproj"
+              "K:\\Users\\nikol\\source\\repos\\PetPPP\\DAL\\DAL.csproj": {
+                "projectPath": "K:\\Users\\nikol\\source\\repos\\PetPPP\\DAL\\DAL.csproj"
               },
-              "E:\\BOTs\\GitHub\\ppp\\PetPPP.BLL.Interfaces\\PetPPP.BLL.Interfaces.csproj": {
-                "projectPath": "E:\\BOTs\\GitHub\\ppp\\PetPPP.BLL.Interfaces\\PetPPP.BLL.Interfaces.csproj"
+              "K:\\Users\\nikol\\source\\repos\\PetPPP\\PetPPP.BLL.Interfaces\\PetPPP.BLL.Interfaces.csproj": {
+                "projectPath": "K:\\Users\\nikol\\source\\repos\\PetPPP\\PetPPP.BLL.Interfaces\\PetPPP.BLL.Interfaces.csproj"
               },
-              "E:\\BOTs\\GitHub\\ppp\\PetPPP.BLL\\PetPPP.BLL.csproj": {
-                "projectPath": "E:\\BOTs\\GitHub\\ppp\\PetPPP.BLL\\PetPPP.BLL.csproj"
+              "K:\\Users\\nikol\\source\\repos\\PetPPP\\PetPPP.BLL\\PetPPP.BLL.csproj": {
+                "projectPath": "K:\\Users\\nikol\\source\\repos\\PetPPP\\PetPPP.BLL\\PetPPP.BLL.csproj"
               },
-              "E:\\BOTs\\GitHub\\ppp\\ServiceContracts\\ServiceContracts.csproj": {
-                "projectPath": "E:\\BOTs\\GitHub\\ppp\\ServiceContracts\\ServiceContracts.csproj"
+              "K:\\Users\\nikol\\source\\repos\\PetPPP\\ServiceContracts\\ServiceContracts.csproj": {
+                "projectPath": "K:\\Users\\nikol\\source\\repos\\PetPPP\\ServiceContracts\\ServiceContracts.csproj"
               }
             }
           }
@@ -415,24 +449,27 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100-preview.6.22352.1\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\BOTs\\GitHub\\ppp\\ServiceContracts\\ServiceContracts.csproj": {
+    "K:\\Users\\nikol\\source\\repos\\PetPPP\\ServiceContracts\\ServiceContracts.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\BOTs\\GitHub\\ppp\\ServiceContracts\\ServiceContracts.csproj",
+        "projectUniqueName": "K:\\Users\\nikol\\source\\repos\\PetPPP\\ServiceContracts\\ServiceContracts.csproj",
         "projectName": "ServiceContracts",
-        "projectPath": "E:\\BOTs\\GitHub\\ppp\\ServiceContracts\\ServiceContracts.csproj",
-        "packagesPath": "C:\\Users\\Олег\\.nuget\\packages\\",
-        "outputPath": "E:\\BOTs\\GitHub\\ppp\\ServiceContracts\\obj\\",
+        "projectPath": "K:\\Users\\nikol\\source\\repos\\PetPPP\\ServiceContracts\\ServiceContracts.csproj",
+        "packagesPath": "C:\\Users\\nikol\\.nuget\\packages\\",
+        "outputPath": "K:\\Users\\nikol\\source\\repos\\PetPPP\\ServiceContracts\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "K:\\Program Files (x86)\\DevExpress 21.2\\Components\\Offline Packages",
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Олег\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\nikol\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 21.2.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -440,6 +477,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "K:\\Program Files (x86)\\DevExpress 21.2\\Components\\System\\Components\\Packages": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -468,12 +506,26 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.6, 6.0.6]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.6, 6.0.6]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.6, 6.0.6]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100-preview.6.22352.1\\RuntimeIdentifierGraph.json"
         }
       }
     }
