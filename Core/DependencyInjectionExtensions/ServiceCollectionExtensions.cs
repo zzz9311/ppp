@@ -32,11 +32,17 @@ public static class ServiceCollectionExtensions
             switch (attribute.LifeTime)
             {
                 case ServiceLifeTime.Scoped:
-                    return services.AddScoped(declaredInterface, el);
+                {
+                    services.AddScoped(declaredInterface, el);
+                }break;
                 case ServiceLifeTime.Singleton:
-                    return services.AddSingleton(declaredInterface, el);
+                {
+                    services.AddSingleton(declaredInterface, el);
+                }break;
                 case ServiceLifeTime.Transient:
+                {
                     return services.AddTransient(declaredInterface, el);
+                }
             }
         }
         

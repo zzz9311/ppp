@@ -10,8 +10,11 @@ namespace DAL
     {
         public static IServiceCollection UseDatabase(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddSelfRegistered(typeof(ServiceCollectionExtensions).Assembly);
-            services.AddDbContext<ApplicationDbContext>(opt => opt.UseNpgsql(configuration.GetConnectionString("DefaultConnection")));
+            services.AddSelfRegistered(typeof(UnitOfWork.UnitOfWork).Assembly);
+            services.AddDbContext<ApplicationDbContext>(opt =>
+                opt.UseNpgsql(configuration.GetConnectionString("DefaultConnection"),
+                    x => x.MigrationsAssembly(nameof(DAL))));
+            
             return services;
         }
     }

@@ -2,7 +2,6 @@
 using Core.Exceptions;
 using DAL.Data;
 using Microsoft.EntityFrameworkCore;
-using System.Data.SqlClient;
 
 namespace DAL.UnitOfWork
 {
@@ -42,7 +41,7 @@ namespace DAL.UnitOfWork
 
         private void UniqueIndexExceptionHandler(DbUpdateException exception)
         {
-            if (exception.InnerException is SqlException sqlException && sqlException.Number == 2627)
+            if (exception.HResult == 2627)
                 throw new UniqueIndexException("Unique constraint error");
         }
     }

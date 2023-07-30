@@ -1,9 +1,6 @@
-using Core;
 using Core.DependencyInjectionExtensions;
 using DAL;
-using DAL.Data;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using PetPPP.BLL;
 using PetPPP.Extensions;
@@ -13,7 +10,6 @@ using Rebus.Config;
 using Rebus.Routing.TypeBased;
 using ServiceContracts;
 using System.Text;
-using Microsoft.AspNetCore.Diagnostics;
 using PetPPP.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
